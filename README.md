@@ -9,7 +9,7 @@ Inkeep MCP Server for your docs!
 ### Setup
 
 ```
-git clone [git@github.com:inkeep/mcp-server-python.git](https://github.com/inkeep/mcp-server-python.git)
+git clone git@github.com:inkeep/mcp-server-python.git
 cd mcp-server-python
 uv venv
 uv pip install -r pyproject.toml
