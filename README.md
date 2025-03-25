@@ -1,12 +1,12 @@
 # mcp-server-python
-Inkeep MCP Server for your docs!
+Inkeep MCP Server powered by your docs and product content.
 
 ### Dependencies
 
-- An account on [Inkeep](https://inkeep.com)
-- [`uv`](https://github.com/astral-sh/uv)
+- An account on [Inkeep](https://inkeep.com) to manage and provide the RAG
+- [`uv`](https://github.com/astral-sh/uv) Python project manager
 
-### Setup
+### Local Setup
 
 ```
 git clone git@github.com:inkeep/mcp-server-python.git
@@ -15,33 +15,42 @@ uv venv
 uv pip install -r pyproject.toml
 ```
 
-You'll need these environment variables:
-```
-INKEEP_API_BASE_URL=https://api.inkeep.com/v1
-INKEEP_API_KEY=
-INKEEP_API_MODEL=inkeep-rag-20250310
-```
-To get an API key, go to the Inkeep Portal and create an API Integration.
+Note the full path of the project, referred to as `<YOUR_INKEEP_MCP_SERVER_ABSOLUTE_PATH>` in a later step.
 
+## Get an API key
 
-### `claude_desktop_config.json`
+1. Log in to the [Inkeep Dashboard](https://portal.inkeep.com)
+2. Navigate to the **Projects** section and select your project
+3. Open the **Integrations** tab
+4. Click **Create Integration** and choose **API** from the options
+5. Enter a Name for your new API integration.
+6. Click on **Create**
+7. A generated **API key** will appear that you can use to authenticate API requests.
 
-```
+We'll refer to this API key as the `<YOUR_INKEEP_API_KEY>` in later steps.
+
+### Add to your MCP client
+
+Follow the steps in [this] guide to setup Claude Dekstop.
+
+In `claude_desktop_config.json`, add the following entry to `mcpServers`.
+
+```json claude_desktop_config.json
 {
     "mcpServers": {
-        "your-docs-by-inkeep-mcp-server": {
+        "inkeep-mcp-server": {
             "command": "uv",
             "args": [
                 "--directory",
-                "/ABSOLUTE/PATH/TO/PARENT/FOLDER/mcp-server-python",
+                "<YOUR_INKEEP_MCP_SERVER_ABSOLUTE_PATH>",
                 "run",
                 "-m",
                 "inkeep_mcp_server"
             ],
             "env": {
                 "INKEEP_API_BASE_URL": "https://api.inkeep.com/v1",
-                "INKEEP_API_KEY": "YOUR_INKEEP_API_KEY",
-                "INKEEP_API_MODEL": "inkeep-rag-20250310"
+                "INKEEP_API_KEY": "<YOUR_INKEEP_API_KEY>",
+                "INKEEP_API_MODEL": "inkeep-rag"
             }
         },
     }
