@@ -18,7 +18,7 @@ class InkeepRAGDocument(BaseModel):
     title: T.Optional[str] = None
     context: T.Optional[str] = None
     # inkeep specific fields
-    source_type: T.Optional[str] = None
+    record_type: T.Optional[str] = None
     url: T.Optional[str] = None
 
 
