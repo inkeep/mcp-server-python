@@ -9,7 +9,7 @@ Inkeep MCP Server powered by your docs and product content.
 ### Local Setup
 
 ```
-git clone git@github.com:inkeep/mcp-server-python.git
+git clone https://github.com/inkeep/mcp-server-python.git
 cd mcp-server-python
 uv venv
 uv pip install -r pyproject.toml
@@ -31,9 +31,9 @@ We'll refer to this API key as the `<YOUR_INKEEP_API_KEY>` in later steps.
 
 ### Add to your MCP client
 
-Follow the steps in [this] guide to setup Claude Dekstop.
+Follow the steps in [this](https://modelcontextprotocol.io/quickstart/user) guide to setup Claude Dekstop.
 
-In `claude_desktop_config.json`, add the following entry to `mcpServers`.
+In your `claude_desktop_config.json` file, add the following entry to `mcpServers`.
 
 ```json claude_desktop_config.json
 {
