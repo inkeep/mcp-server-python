@@ -48,8 +48,8 @@ async def make_inkeep_rag_request(query: str) -> InkeepRAGResponse:
 
 
 @mcp.tool(
-    name="retrieve-product-docs",
-    description="Retrieve product docs about your product using the Inkeep RAG API. 'query' should be framed as a conversational question about the product.",
+    name="search-product-content",
+    description="Retrieve product content (docs, release notes, help center articles, etc.) about your product using. The query can be framed as a conversational question about the product.",
 )
 async def retrieve_product_docs(query: str) -> InkeepRAGResponse:
     return await make_inkeep_rag_request(query)
