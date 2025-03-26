@@ -50,7 +50,9 @@ In your `claude_desktop_config.json` file, add the following entry to `mcpServer
             "env": {
                 "INKEEP_API_BASE_URL": "https://api.inkeep.com/v1",
                 "INKEEP_API_KEY": "<YOUR_INKEEP_API_KEY>",
-                "INKEEP_API_MODEL": "inkeep-rag"
+                "INKEEP_API_MODEL": "inkeep-rag",
+                "INKEEP_MCP_TOOL_NAME": "search-product-content",
+                "INKEEP_MCP_TOOL_DESCRIPTION": "Retrieves product documentation about Inkeep. The query should be framed as a conversational question about Inkeep."
             }
         },
     }
