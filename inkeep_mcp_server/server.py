@@ -48,8 +48,8 @@ async def make_inkeep_rag_request(query: str) -> InkeepRAGResponse:
 
 
 @mcp.tool(
-    name="search-product-content",
-    description="Retrieve product content (docs, release notes, help center articles, etc.) about your product. Use when a task requires documentation or knowledge about the product that the user is a member of. Typical users include technical writers, content marketers,support agents, and developers who may be doing a task that requires knowledge about their own product, like writing a new blog post, modifying existing docs, creating examples, etc. The query can be framed as a conversational question about the product.",
+    name=inkeep_settings.INKEEP_MCP_TOOL_NAME,
+    description=inkeep_settings.INKEEP_MCP_TOOL_DESCRIPTION,
 )
 async def retrieve_product_docs(query: str) -> InkeepRAGResponse:
     return await make_inkeep_rag_request(query)
